@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "Components/TimelineComponent.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Cubemon.generated.h"
@@ -20,19 +19,6 @@ public:
 	UPROPERTY(VisibleAnywhere) class UWidgetComponent* WidgetComponent;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly) float HP = 1.0f;
 
-	// Timeline
-	UPROPERTY(VisibleAnywhere) class UTimelineComponent* MyTimeline;
-	UPROPERTY(EditAnywhere) UCurveFloat* FloatCurve;
-	UPROPERTY(EditAnywhere) float TimelinePlayRate = 1.0f;
-	
-	UFUNCTION() void TimelineCallback(float val);
-	UFUNCTION() void TimelineFinishedCallback();
-	void PlayTimeline();
-
-	UPROPERTY(VisibleAnywhere) TEnumAsByte<ETimelineDirection::Type> TimelineDirection;
-
-
-	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
